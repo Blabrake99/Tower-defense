@@ -297,23 +297,29 @@ MonoBehaviour:
     - newTowerProjectile: {fileID: 0}
       addedRange: 0
       addedFireRate: 0.5
+      cost: 50
     - newTowerProjectile: {fileID: 0}
       addedRange: 0
       addedFireRate: 0.5
+      cost: 100
   - upgrades:
     - newTowerProjectile: {fileID: 0}
       addedRange: 2
       addedFireRate: 0
+      cost: 40
     - newTowerProjectile: {fileID: 0}
       addedRange: 2
       addedFireRate: 0
+      cost: 120
   - upgrades:
     - newTowerProjectile: {fileID: 0}
       addedRange: 1
       addedFireRate: 0.25
+      cost: 70
     - newTowerProjectile: {fileID: 0}
       addedRange: 1
       addedFireRate: 0.25
+      cost: 140
 --- !u!65 &6678133622810838098
 BoxCollider:
   m_ObjectHideFlags: 0

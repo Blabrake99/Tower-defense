@@ -41,6 +41,13 @@ public class Player : MonoBehaviour
     {
         return currency;
     }
+    public static bool HaveEnoughMoney(int cost)
+    {
+        if (currency >= cost)
+            return true;
+        else
+            return false;
+    }
     #endregion
 
     #region Lives

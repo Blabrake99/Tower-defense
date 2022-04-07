@@ -237,6 +237,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8978384580186459715}
   - component: {fileID: 8978384580186459712}
+  - component: {fileID: 8287177317623496424}
   - component: {fileID: 6678133622810838098}
   m_Layer: 7
   m_Name: Turret
@@ -279,6 +280,40 @@ MonoBehaviour:
   bulletPrefab: {fileID: 5201113192745420418, guid: f19340ea1292d964a826d505a6783334, type: 3}
   firePoint: {fileID: 8978384579661577031}
   active: 0
+--- !u!114 &8287177317623496424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8978384580186459714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 66d3d324a5f75c840aaeaea8f6e3d0c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  trees:
+  - upgrades:
+    - newTowerProjectile: {fileID: 0}
+      addedRange: 0
+      addedFireRate: 0.5
+    - newTowerProjectile: {fileID: 0}
+      addedRange: 0
+      addedFireRate: 0.5
+  - upgrades:
+    - newTowerProjectile: {fileID: 0}
+      addedRange: 2
+      addedFireRate: 0
+    - newTowerProjectile: {fileID: 0}
+      addedRange: 2
+      addedFireRate: 0
+  - upgrades:
+    - newTowerProjectile: {fileID: 0}
+      addedRange: 1
+      addedFireRate: 0.25
+    - newTowerProjectile: {fileID: 0}
+      addedRange: 1
+      addedFireRate: 0.25
 --- !u!65 &6678133622810838098
 BoxCollider:
   m_ObjectHideFlags: 0

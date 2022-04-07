@@ -83,6 +83,16 @@ public class Player : MonoBehaviour
         }
         return false;
     }
+    public static GameObject GetTowerClickedOn()
+    {
+        Ray camray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit HitInfo;
+        if (Physics.Raycast(camray, out HitInfo, 100f, towerMask))
+        {
+            return HitInfo.transform.gameObject;
+        }
+        return null;
+    }
     #endregion
     public void ResetGame()
     {

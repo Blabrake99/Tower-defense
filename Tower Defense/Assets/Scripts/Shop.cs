@@ -5,6 +5,7 @@ public class Shop : MonoBehaviour
 
     public void PurchaseTurret(int turretIndex)
     {
+        GameManager.DisableUpgradeUI();
         if (Player.CurrencyRemaining() < turrets[turretIndex].cost)
         {
             print("Not enough money");
@@ -31,11 +32,6 @@ public class Shop : MonoBehaviour
                 placement.tower.GetComponent<Turret>().active = false;
             }
         }
-    }
-
-    public void PurchaseUpgrade(int turretIndex, int turretPath)
-    {
-
     }
 
     [System.Serializable]

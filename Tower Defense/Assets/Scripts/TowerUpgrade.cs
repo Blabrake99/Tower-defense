@@ -75,14 +75,31 @@ public class TowerUpgrade : MonoBehaviour
     }
     public int getSellAmount()
     {
-        float amount = 0;
-        if(upgradeAmount == 0)
-        {
-            amount = turret.cost;
-        }
-        else
-        {
-            amount = turret.cost;
+        float amount = turret.cost;
+        if (upgradeAmount > 0)
+        { 
+            if(treeOneUpgradeCount > 0)
+            {
+                for(int i = 0; i < treeOneUpgradeCount;i++)
+                {
+                    amount += trees[0].upgrades[i].cost;
+                }
+            }
+            if(treeTwoUpgradeCount > 0)
+            {
+                for (int i = 0; i < treeTwoUpgradeCount; i++)
+                {
+                    amount += trees[1].upgrades[i].cost;
+                }
+            }
+            if(treeThreeUpgradeCount > 0)
+            {
+                for (int i = 0; i < treeThreeUpgradeCount; i++)
+                {
+                    amount += trees[2].upgrades[i].cost;
+                }
+            }
+            //amount = turret.cost;
         }
         //you wont get a full refund but pretty close
         amount *= .75f;

@@ -275,6 +275,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 10
   fireRate: 1
+  cost: 200
   turnSpeed: 10
   partToRotate: {fileID: 8978384580628307397}
   bulletPrefab: {fileID: 5201113192745420418, guid: f19340ea1292d964a826d505a6783334, type: 3}

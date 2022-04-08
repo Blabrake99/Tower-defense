@@ -8,7 +8,6 @@ public class Shop : MonoBehaviour
         GameManager.DisableUpgradeUI();
         if (Player.CurrencyRemaining() < turrets[turretIndex].cost)
         {
-            print("Not enough money");
             return;
         }
         TowerPlacement placement = FindObjectOfType<TowerPlacement>();

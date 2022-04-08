@@ -12,6 +12,9 @@ public class TowerUpgradeUI : MonoBehaviour
     public Button btnSell;
     private void OnEnable()
     {
+        if (towerToUpgrade == null)
+            return;
+
         if (!towerToUpgrade.IsTreeMaxOut(0))
         {
             btnOne.interactable = true;
@@ -48,6 +51,8 @@ public class TowerUpgradeUI : MonoBehaviour
             btnThree.interactable = false;
             btnThree.gameObject.transform.GetComponentInChildren<Text>().text = "Maxed out";
         }
+        if (towerToUpgrade != null)
+            btnSell.transform.GetComponentInChildren<Text>().text = "Sell for" + Environment.NewLine + towerToUpgrade.getSellAmount();
     }
     public void ButtonOne()
     {
@@ -66,7 +71,7 @@ public class TowerUpgradeUI : MonoBehaviour
     }
     public void Sell()
     {
-
+        towerToUpgrade.Sell();
     }
     public void UpdateText()
     {
@@ -93,6 +98,8 @@ public class TowerUpgradeUI : MonoBehaviour
             btnThree.interactable = false;
             btnThree.gameObject.transform.GetComponentInChildren<Text>().text = "Maxed out";
         }
+        if(towerToUpgrade != null)
+            btnSell.transform.GetComponentInChildren<Text>().text = "Sell for" + Environment.NewLine +  towerToUpgrade.getSellAmount();
     }
     //this class will be used later
     [System.Serializable]

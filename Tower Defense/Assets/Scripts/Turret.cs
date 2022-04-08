@@ -11,6 +11,7 @@ public class Turret : MonoBehaviour
     public float range = 10;
     public float fireRate = 1f;
     private float fireCountdown = 0;
+    public int cost = 0;
 
     [Header("Unity Setup Fields")]
 

@@ -9,7 +9,7 @@ public class TowerUpgrade : MonoBehaviour
     int treeOneUpgradeCount;
     int treeTwoUpgradeCount;
     int treeThreeUpgradeCount;
-
+    int upgradeAmount;
     private void Start()
     {
         turret = GetComponent<Turret>();
@@ -60,6 +60,34 @@ public class TowerUpgrade : MonoBehaviour
         else
             return 0;
     }   
+    public void Sell()
+    {
+        int sellAmount = 0;
+        if(upgradeAmount == 0)
+        {
+            sellAmount = getSellAmount();
+        }
+
+
+        Player.UpdateCurrency(sellAmount);
+        GameManager.DisableUpgradeUI();
+        Destroy(gameObject);
+    }
+    public int getSellAmount()
+    {
+        float amount = 0;
+        if(upgradeAmount == 0)
+        {
+            amount = turret.cost;
+        }
+        else
+        {
+            amount = turret.cost;
+        }
+        //you wont get a full refund but pretty close
+        amount *= .75f;
+        return Mathf.RoundToInt(amount);
+    }
     public void UpgradeTower(int _treeIndex)
     {
         int _upgradeIndex = 0;
@@ -84,8 +112,8 @@ public class TowerUpgrade : MonoBehaviour
     }
     void ApplyUpgrade(Upgrade upgrade)
     {
-        print("Applyed");
-        if(upgrade.newTowerProjectile != null)
+        upgradeAmount++;
+        if (upgrade.newTowerProjectile != null)
             turret.bulletPrefab = upgrade.newTowerProjectile;
         Player.UpdateCurrency(-upgrade.cost);
         turret.range += upgrade.addedRange;

@@ -2217,7 +2217,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1261624517}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1694744388}
+        m_TargetAssemblyTypeName: TowerUpgradeUI, Assembly-CSharp
+        m_MethodName: Sell
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1261624517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2649,6 +2661,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 8978384580186459712, guid: b82bbcfa35d734d4597b9716260f0cd3, type: 3}
+      propertyPath: cost
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8978384580186459712, guid: b82bbcfa35d734d4597b9716260f0cd3, type: 3}
       propertyPath: active
       value: 1
       objectReference: {fileID: 0}
@@ -2829,7 +2845,7 @@ MonoBehaviour:
   btnOne: {fileID: 239724459}
   btnTwo: {fileID: 1187075609}
   btnThree: {fileID: 527809435}
-  btnSell: {fileID: 0}
+  btnSell: {fileID: 1261624516}
 --- !u!114 &1694744389
 MonoBehaviour:
   m_ObjectHideFlags: 0

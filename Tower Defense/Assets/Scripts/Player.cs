@@ -82,7 +82,6 @@ public class Player : MonoBehaviour
         Ray camray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit[] Hits;
         Hits = Physics.RaycastAll(camray, 100, towerMask);
-        print(Hits.Length);
         for(int i = 0; i < Hits.Length;i++)
         {
             if (SelectedTower != Hits[i].transform.gameObject)

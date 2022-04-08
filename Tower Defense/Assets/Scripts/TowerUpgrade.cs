@@ -99,7 +99,6 @@ public class TowerUpgrade : MonoBehaviour
                     amount += trees[2].upgrades[i].cost;
                 }
             }
-            //amount = turret.cost;
         }
         //you wont get a full refund but pretty close
         amount *= .75f;

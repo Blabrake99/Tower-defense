@@ -2843,9 +2843,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerToUpgrade: {fileID: 0}
   btnOne: {fileID: 239724459}
+  txtOne: {fileID: 1356100664}
   btnTwo: {fileID: 1187075609}
+  txtTwo: {fileID: 664477159}
   btnThree: {fileID: 527809435}
-  btnSell: {fileID: 1261624516}
+  txtThree: {fileID: 577604345}
+  txtSell: {fileID: 819366651}
 --- !u!114 &1694744389
 MonoBehaviour:
   m_ObjectHideFlags: 0

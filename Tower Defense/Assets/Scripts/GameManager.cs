@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     {
         if (towerPlacement.tower != null)
             return;
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             GameObject turret = Player.GetTowerClickedOn();
             if (turret != null)
@@ -30,6 +30,7 @@ public class GameManager : MonoBehaviour
     public static void EnableUpgradeUI(GameObject turret)
     {
         towerUpgradeUI.GetComponent<TowerUpgradeUI>().towerToUpgrade = turret.GetComponent<TowerUpgrade>();
+        towerUpgradeUI.GetComponent<TowerUpgradeUI>().setUI();
         towerUpgradeUI.SetActive(true);
     }
     public static void DisableUpgradeUI()

@@ -16,7 +16,8 @@ public class TowerUpgradeUI : MonoBehaviour
     public Text txtThree;
 
     public Text txtSell;
-    private void OnEnable()
+
+    public void setUI()
     {
         if (towerToUpgrade == null)
             return;

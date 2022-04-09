@@ -6,7 +6,8 @@ public class Shop : MonoBehaviour
     public void PurchaseTurret(int turretIndex)
     {
         GameManager.DisableUpgradeUI();
-        if (Player.CurrencyRemaining() < turrets[turretIndex].cost)
+        int cost = turrets[turretIndex].gameObject.GetComponent<Turret>().cost;
+        if (Player.CurrencyRemaining() < cost)
         {
             return;
         }
@@ -16,7 +17,7 @@ public class Shop : MonoBehaviour
         {
             placement.tower = Instantiate(turrets[turretIndex].gameObject);
             placement.tower.GetComponent<Turret>().active = false;
-            placement.towerCost = turrets[turretIndex].cost;
+            placement.towerCost = cost;
         }
         else
         {
@@ -37,6 +38,5 @@ public class Shop : MonoBehaviour
     public class ShopTurret
     {
         public GameObject gameObject;
-        public int cost;
     }
 }

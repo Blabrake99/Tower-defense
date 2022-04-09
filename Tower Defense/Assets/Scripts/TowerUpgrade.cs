@@ -59,15 +59,10 @@ public class TowerUpgrade : MonoBehaviour
             return trees[_treeIndex].upgrades[_upgradeIndex].cost;
         else
             return 0;
-    }   
+    }
     public void Sell()
     {
-        int sellAmount = 0;
-        if(upgradeAmount == 0)
-        {
-            sellAmount = getSellAmount();
-        }
-
+        int sellAmount = getSellAmount();
 
         Player.UpdateCurrency(sellAmount);
         GameManager.DisableUpgradeUI();
@@ -76,23 +71,30 @@ public class TowerUpgrade : MonoBehaviour
     public int getSellAmount()
     {
         float amount = turret.cost;
+
+        if (upgradeAmount == 0)
+        {
+            amount *= .75f;
+            return Mathf.RoundToInt(amount);
+        }
+
         if (upgradeAmount > 0)
-        { 
-            if(treeOneUpgradeCount > 0)
+        {
+            if (treeOneUpgradeCount > 0)
             {
-                for(int i = 0; i < treeOneUpgradeCount;i++)
+                for (int i = 0; i < treeOneUpgradeCount; i++)
                 {
                     amount += trees[0].upgrades[i].cost;
                 }
             }
-            if(treeTwoUpgradeCount > 0)
+            if (treeTwoUpgradeCount > 0)
             {
                 for (int i = 0; i < treeTwoUpgradeCount; i++)
                 {
                     amount += trees[1].upgrades[i].cost;
                 }
             }
-            if(treeThreeUpgradeCount > 0)
+            if (treeThreeUpgradeCount > 0)
             {
                 for (int i = 0; i < treeThreeUpgradeCount; i++)
                 {

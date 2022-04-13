@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesTaken: 5
+  health: 5
+  moneyGained: 20
 --- !u!114 &2534457674580823537
 MonoBehaviour:
   m_ObjectHideFlags: 0

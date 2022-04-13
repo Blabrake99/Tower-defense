@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   livesTaken: 1
+  health: 1
 --- !u!114 &2534457674580823537
 MonoBehaviour:
   m_ObjectHideFlags: 0

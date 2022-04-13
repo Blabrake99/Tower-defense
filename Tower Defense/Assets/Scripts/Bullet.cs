@@ -3,9 +3,10 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
-
+    public int amountOfDamage = 1;
     public float speed = 70;
     public GameObject impactEffect;
+
     public void Seek(Transform _target)
     {
         target = _target;
@@ -33,8 +34,7 @@ public class Bullet : MonoBehaviour
     {
         GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2f);
-        Player.UpdateCurrency(5);
-        Destroy(target.gameObject);
+        target.gameObject.GetComponent<EnemyScript>().loseHealth(amountOfDamage);
         Destroy(gameObject);
     }
 }

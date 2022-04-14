@@ -3,38 +3,42 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Transform target;
-    public int amountOfDamage = 1;
+    int amountOfDamage = 1;
     public float speed = 70;
-    public GameObject impactEffect;
-
+    public int hitAmount = 1;
+    public float aliveTimer = 7f;
+    Vector3 dir;
     public void Seek(Transform _target)
     {
         target = _target;
+        dir = target.position - transform.position;
+        Destroy(gameObject, aliveTimer);
+    }
+    public void SetDamage(int _damage)
+    {
+        amountOfDamage = _damage;
     }
     void Update()
     {
-        if (target == null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Vector3 dir = target.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
-
-        if(dir.magnitude <= distanceThisFrame)
+        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+    }
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.gameObject.tag == "Enemy")
         {
             HitTarget();
-            return;
         }
-
-        transform.Translate(dir.normalized * distanceThisFrame, Space.World);
+    }
+    private void OnCollisionEnter(Collision col)
+    {
+        Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
     }
     void HitTarget()
     {
-        GameObject effectIns = Instantiate(impactEffect, transform.position, transform.rotation);
-        Destroy(effectIns, 2f);
         target.gameObject.GetComponent<EnemyScript>().loseHealth(amountOfDamage);
-        Destroy(gameObject);
+        hitAmount--;
+        if (hitAmount <= 0)
+            Destroy(gameObject);
     }
 }

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5201113192745420417}
   - component: {fileID: 5201113192745420416}
   - component: {fileID: -6953736252256932383}
+  - component: {fileID: -7937130286996930856}
+  - component: {fileID: 7989286981153772489}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -95,4 +97,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 70
-  impactEffect: {fileID: 7320565824224658979, guid: 7967233718e145e4aa7c9ff3f33e904f, type: 3}
+  hitAmount: 2
+  aliveTimer: 5
+--- !u!65 &-7937130286996930856
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201113192745420418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &7989286981153772489
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5201113192745420418}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 116
+  m_CollisionDetection: 0

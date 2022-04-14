@@ -131,12 +131,14 @@ public class TowerUpgrade : MonoBehaviour
     void ApplyUpgrade(Upgrade upgrade)
     {
         upgradeAmount++;
+
         if (upgrade.newTowerProjectile != null)
             turret.bulletPrefab = upgrade.newTowerProjectile;
+
         Player.UpdateCurrency(-upgrade.cost);
         turret.range += upgrade.addedRange;
         turret.fireRate += upgrade.addedFireRate;
-
+        turret.bulletDamage += upgrade.addedDamage;
         FindObjectOfType<TowerUpgradeUI>().UpdateText();
     }
 
@@ -153,6 +155,7 @@ public class TowerUpgrade : MonoBehaviour
         public GameObject newTowerProjectile;
         public float addedRange;
         public float addedFireRate;
+        public int addedDamage;
         public int cost;
     }
 }

@@ -12,7 +12,7 @@ public class Turret : MonoBehaviour
     public float fireRate = 1f;
     private float fireCountdown = 0;
     public int cost = 0;
-
+    public int bulletDamage = 1;
     [Header("Unity Setup Fields")]
 
     public float turnSpeed = 10;
@@ -75,7 +75,10 @@ public class Turret : MonoBehaviour
         Bullet bullet = bulletGO.GetComponent<Bullet>();
 
         if (bullet != null)
+        {
             bullet.Seek(target);
+            bullet.SetDamage(bulletDamage);
+        }
     }
     private void OnDrawGizmosSelected()
     {

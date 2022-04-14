@@ -27,16 +27,16 @@ public class Bullet : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
-            HitTarget();
+            HitTarget(col.gameObject.GetComponent<EnemyScript>());
         }
     }
     private void OnCollisionEnter(Collision col)
     {
         Physics.IgnoreCollision(GetComponent<Collider>(), col.collider);
     }
-    void HitTarget()
+    void HitTarget(EnemyScript _hitEnemy)
     {
-        target.gameObject.GetComponent<EnemyScript>().loseHealth(amountOfDamage);
+        _hitEnemy.loseHealth(amountOfDamage);
         hitAmount--;
         if (hitAmount <= 0)
             Destroy(gameObject);

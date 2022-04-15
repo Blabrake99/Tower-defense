@@ -35,7 +35,8 @@ public class Player : MonoBehaviour
     }
     public static void UpdateMoneyText()
     {
-        moneyText.text = "Money : " + currency;
+        if(moneyText != null)
+            moneyText.text = "Money : " + currency;
     }
     public static int CurrencyRemaining()
     {
@@ -58,7 +59,8 @@ public class Player : MonoBehaviour
     }
     public static void UpdateLivesText()
     {
-        livesText.text = "Lives : " + lives;
+        if (livesText != null)
+            livesText.text = "Lives : " + lives;
     }
     public static int LivesRemaining()
     {

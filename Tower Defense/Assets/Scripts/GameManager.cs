@@ -5,12 +5,16 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     TowerPlacement towerPlacement;
-
+    public GameObject _towerUpgradeUI;
+    public TowerUpgradeUI _towerUpgrade;
+    public static TowerUpgradeUI towerUpgrade;
     static GameObject towerUpgradeUI;
     private void Awake()
     {
         towerPlacement = GetComponent<TowerPlacement>();
-        towerUpgradeUI = FindObjectOfType<TowerUpgradeUI>().gameObject;
+        towerUpgradeUI = _towerUpgradeUI;
+        towerUpgrade = _towerUpgrade;
+        //towerUpgradeUI = FindObjectOfType<TowerUpgradeUI>().gameObject;
         DisableUpgradeUI();
     }
     private void Update()
@@ -26,16 +30,20 @@ public class GameManager : MonoBehaviour
             }
         }
     }
-
+    //this is because buttons cannot call static functions
+    public void XBtn()
+    {
+        DisableUpgradeUI();
+    }
     public static void EnableUpgradeUI(GameObject turret)
     {
-        towerUpgradeUI.GetComponent<TowerUpgradeUI>().towerToUpgrade = turret.GetComponent<TowerUpgrade>();
-        towerUpgradeUI.GetComponent<TowerUpgradeUI>().setUI();
+        towerUpgrade.towerToUpgrade = turret.GetComponent<TowerUpgrade>();
+        towerUpgrade.setUI();
         towerUpgradeUI.SetActive(true);
     }
     public static void DisableUpgradeUI()
     {
-        towerUpgradeUI.GetComponent<TowerUpgradeUI>().towerToUpgrade = null;
+        towerUpgrade.towerToUpgrade = null;
         towerUpgradeUI.SetActive(false);
     }
 }
